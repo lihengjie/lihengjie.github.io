@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Git on Hugo Themes</title>
+    <link>http://hugo.spf13.com/categories/git/</link>
+    <description>Recent content in Git on Hugo Themes</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <copyright>Copyright (c) 2008 - 2014, Steve Francia; all rights reserved.</copyright>
+    <lastBuildDate>Thu, 19 Sep 2019 17:51:45 +0800</lastBuildDate>
+    
+	<atom:link href="http://hugo.spf13.com/categories/git/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Git常用命令</title>
+      <link>http://hugo.spf13.com/post/git%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/</link>
+      <pubDate>Thu, 19 Sep 2019 17:51:45 +0800</pubDate>
+      
+      <guid>http://hugo.spf13.com/post/git%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/</guid>
+      <description>git note git stash
+git stash list
+git stash applay
+git log -p -2
+tag 通常在发布版本的时候打一个tag，tag会记录版本号，方便后期回溯
+git tag :列出所有tag
+可以直接使用git tag v1.1 创建一个tag，也可以加上-a增加一个带备注，a的意思是annotate，其中的备注信息由-m带入， 如git tag -a v1.1 -m&#39;预发布版本&#39;
+git show tagName,查看tag信息，如git show v1.0
+给某个指定的commit添加tag，打tag不必要在head上，也可以在之前的commit上打，通过 git log查看
+git tag -l &amp;lsquo;v1.*&amp;rsquo; 列出所有以v1.0开头的tag</description>
+    </item>
+    
+  </channel>
+</rss>

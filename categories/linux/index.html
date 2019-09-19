@@ -1,0 +1,127 @@
+<!doctype html>
+<html>
+<head>
+    <base href="http://hugo.spf13.com/">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="author" content="John Doe">
+
+<meta name="description" content="">
+
+<title>Linux</title>
+<meta name="generator" content="Hugo 0.40.1" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.1.0/styles/pojoaque.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.1.0/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+<link href="https://fonts.googleapis.com/css?family=Source+Code+Pro:400,700" rel="stylesheet" type="text/css">
+<link  href="http://hugo.spf13.com//css/theme.min.css" rel="stylesheet" type="text/css">
+
+</head>
+<body>
+<div class="page-container container-fluid">
+<div class="col-md-3 menu">
+    <nav class="col-md-3">
+    
+    <h3 class="home-link"><a href="http://hugo.spf13.com/">Root</a></h3>
+    <div id="last-posts" class="open">
+        <h3 data-open="last-posts">Hugo Themes - Most recent posts</h3>
+        <ul>
+            
+            <li><a href="http://hugo.spf13.com/post/volatile%E7%AC%94%E8%AE%B0/">Volatile笔记</a></li>
+            
+            <li><a href="http://hugo.spf13.com/post/tcpdump%E7%AC%94%E8%AE%B0/">Tcpdump笔记</a></li>
+            
+            <li><a href="http://hugo.spf13.com/post/semaphore%E7%AC%94%E8%AE%B0/">Semaphore笔记</a></li>
+            
+            <li><a href="http://hugo.spf13.com/post/reentrantlock%E7%AC%94%E8%AE%B0/">ReentrantLock笔记</a></li>
+            
+            <li><a href="http://hugo.spf13.com/post/nio%E7%AC%94%E8%AE%B0/">Nio笔记</a></li>
+            
+            <li><a href="http://hugo.spf13.com/post/git%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/">Git常用命令</a></li>
+            
+            <li><a href="http://hugo.spf13.com/post/cron%E8%A1%A8%E8%BE%BE%E5%BC%8F/">Cron表达式</a></li>
+            
+            <li><a href="http://hugo.spf13.com/post/countdownlatch/">CountDownLatch</a></li>
+            
+            <li><a href="http://hugo.spf13.com/about/">About Hugo</a></li>
+            
+        </ul>
+    </div>
+    
+
+    
+    <div id="tags" class="open">
+        <h3 data-open="tags">Tags</h3>
+        <ul class="tags">
+            
+            <li><a href="http://hugo.spf13.com/tags/cron">cron</a></li>
+            
+            <li><a href="http://hugo.spf13.com/tags/git">git</a></li>
+            
+            <li><a href="http://hugo.spf13.com/tags/java">java</a></li>
+            
+            <li><a href="http://hugo.spf13.com/tags/nio">nio</a></li>
+            
+            <li><a href="http://hugo.spf13.com/tags/tcpdump">tcpdump</a></li>
+            
+            <li><a href="http://hugo.spf13.com/tags/%E5%A4%9A%E7%BA%BF%E7%A8%8B">多线程</a></li>
+            
+        </ul>
+    </div>
+    
+
+    
+    <div id="categories" class="open">
+        <h3 data-open="categories">Categories</h3>
+        <ul class="categories">
+            
+            <li><a href="http://hugo.spf13.com/categories/git">git</a></li>
+            
+            <li><a href="http://hugo.spf13.com/categories/java">java</a></li>
+            
+            <li><a href="http://hugo.spf13.com/categories/linux">linux</a></li>
+            
+            <li><a href="http://hugo.spf13.com/categories/%E5%A4%9A%E7%BA%BF%E7%A8%8B">多线程</a></li>
+            
+        </ul>
+    </div>
+    
+</nav>
+
+</div>
+<div class="col-md-9 content">
+
+
+<div class="articles-list">
+    
+    <article>
+        <h3><a href="http://hugo.spf13.com/post/cron%E8%A1%A8%E8%BE%BE%E5%BC%8F/">Cron表达式</a> - 2019-09-19 17:51:12</h3>
+        ubuntu 使用cron自动拉取推送git代码 前提：使用git作为同步笔记，只有一个master，不和他人共同开发。
+有时候忘了提交，所以可以使用cron自动pull 和 push。
+编写shell脚本
+#!/bin/bash now_str=`date '+%Y-%m-%d %H:%M:%S'`' auto-push' echo ${now_str} &gt; /home/lihengjie/myfiles/java-note/git_commit_message.log cd /home/lihengjie/myfiles/java-note/ git pull git add . git ci -F /home/lihengjie/myfiles/java-note/git_commit_message.log git push  编辑cron表达式
+命令行执行
+# crontab -e  出现如下界面
+ 1 # Edit this file to introduce tasks to be run by cron. 2 # 3 # Each task to run has to be defined through a single line 4 # indicating with different fields when the task will be run 5 # and what command to run for the task 6 # 7 # To define the time you can provide concrete values for 8 # minute (m), hour (h), day of month (dom), month (mon), 9 # and day of week (dow) or use '*' in these fields (for 'any').
+    </article>
+    
+    <article>
+        <h3><a href="http://hugo.spf13.com/post/tcpdump%E7%AC%94%E8%AE%B0/">Tcpdump笔记</a> - 2019-09-19 17:53:36</h3>
+         tcpdump 抓包命令及wireshark使用 tcpdump 命令 参考网址
+tcpdump -i eth0 src host 192.168.0.1 dst host 145.155.25.100 -w /home/test.pcap |命令|说明 |- |-i|指定网卡 |src host|指定源地址 |dst host|指定目标地址 |-w|写入文件
+wireshark 使用  导入生成的pcap文件。 使用命令过滤。  wireshark命令 参考网址
+ 源地址 src.ip == 192.168.0.1 目标地址 dst.ip == 145.155.25.100 端口 tcp.port == 8080 长度 tcp.len &gt; 100 not and or  
+    </article>
+    
+</div>
+
+
+</div>
+</div>
+<script src="http://hugo.spf13.com//js/theme.min.js" type="text/javascript"></script>
+
+
+</body>
+</html>
+

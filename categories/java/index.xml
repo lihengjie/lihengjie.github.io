@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Java on Hugo Themes</title>
+    <link>http://hugo.spf13.com/categories/java/</link>
+    <description>Recent content in Java on Hugo Themes</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <copyright>Copyright (c) 2008 - 2014, Steve Francia; all rights reserved.</copyright>
+    <lastBuildDate>Thu, 19 Sep 2019 17:53:47 +0800</lastBuildDate>
+    
+	<atom:link href="http://hugo.spf13.com/categories/java/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Volatile笔记</title>
+      <link>http://hugo.spf13.com/post/volatile%E7%AC%94%E8%AE%B0/</link>
+      <pubDate>Thu, 19 Sep 2019 17:53:47 +0800</pubDate>
+      
+      <guid>http://hugo.spf13.com/post/volatile%E7%AC%94%E8%AE%B0/</guid>
+      <description>volatile note volatile 需要了解java的内存模型，原子性，可见性，有序性，
+内存模型 Thread-A &amp;ndash;&amp;gt; 工作内存 &amp;ndash;&amp;gt; 主内存
+Thread-B &amp;ndash;&amp;gt; 工作内存 &amp;ndash;&amp;gt; 主内存
+可见性 线程将主内存的数据读入工作内存，工作内存的读写速度非常高，这样cpu在运行的时候不会卡在读写上。但是这样会导致A线程读到变量i，B线程此时也读到B线程，A+1修改之后写入主内存，B也+1修改写入主内存，造成ABA问题。 此时需要需要volatile的可见性，就是A修改之后，写入主内存，此时B工作内存中的缓存行会失效，B再次读取时会到主内存读取。
+volatile修饰的变量在线程的工作内存修改后，其他线程再在其工作内存读取时(注意是去工作内存读取，读取，读取，如果线程已将变量读取，但是尚未操作时，此时程序仍会出错)，会发现已失效，会再去主内存读取。
+使用synchronized、lock在释放锁的时候也会将变量的新值刷回主内存，但是开销比较大。
+原子性 int a = 1 ; // 原子性 int b = a; // 非原子性，需要读取a，赋值给b a += 1; // 非原子性 a++; // 非原子性  原子操作：要么一次性完成，要么不做。由以上代码得出由数字赋值是原子性操作，变量复制多了一步读取的操作，不是，另外两个的操作是：读取，加一，赋值。所以也不是原子操作。 volatile 不能保证非原子性的操作，可见代码。
+有序性 JMM允许编译器和处理器重排序。 as-if-serial:不管怎样重排序，程序的结果不变。 volatile禁止指令重排。 8个happens-before 原则
+1.程序顺序规则： 一个线程中的每个操作，happens-before于该线程中的任意后续操作
+2.监视器锁规则：对一个线程的解锁，happens-before于随后对这个线程的加锁
+3.volatile变量规则： 对一个volatile域的写，happens-before于后续对这个volatile域的读
+4.传递性：如果A happens-before B ,且 B happens-before C, 那么 A happens-before C
+5.start()规则： 如果线程A执行操作ThreadB_start()(启动线程B) , 那么A线程的ThreadB_start()happens-before 于B中的任意操作</description>
+    </item>
+    
+    <item>
+      <title>Semaphore笔记</title>
+      <link>http://hugo.spf13.com/post/semaphore%E7%AC%94%E8%AE%B0/</link>
+      <pubDate>Thu, 19 Sep 2019 17:53:22 +0800</pubDate>
+      
+      <guid>http://hugo.spf13.com/post/semaphore%E7%AC%94%E8%AE%B0/</guid>
+      <description>semaphore note 使用场景举例 semaphore是共享锁，为了最大化cpu使用。所以如果某线程符合条件，会先获取资源
+饭店满座，现在来了一家三口，排队。又来了一对情侣，排队。现在，空了一桌，两个位子，如果用semaphore，情侣可以进去用餐。(此处情侣符合条件，可以先用餐，饭店最大化运营)
+代码示例 public class TestSemaphore { public static void main(String[] args) { Semaphore semaphore = new Semaphore(10); Thread threadA = new Thread(() -&amp;gt; { try { System.out.println(Thread.currentThread().getName() + &amp;quot;acquire 4&amp;quot;); semaphore.acquire(4); Thread.sleep(2000); semaphore.release(2); System.out.println(Thread.currentThread().getName() + &amp;quot;release 2&amp;quot;); Thread.sleep(3000); semaphore.release(2); System.out.println(Thread.currentThread().getName() + &amp;quot;release 2&amp;quot;); System.out.println(Thread.currentThread().getName() + &amp;quot;ok&amp;quot;); } catch (InterruptedException e) { e.printStackTrace(); } }); threadA.setName(&amp;quot;threadA -- &amp;quot;); Thread threadB = new Thread(() -&amp;gt; { try { System.</description>
+    </item>
+    
+    <item>
+      <title>ReentrantLock笔记</title>
+      <link>http://hugo.spf13.com/post/reentrantlock%E7%AC%94%E8%AE%B0/</link>
+      <pubDate>Thu, 19 Sep 2019 17:52:58 +0800</pubDate>
+      
+      <guid>http://hugo.spf13.com/post/reentrantlock%E7%AC%94%E8%AE%B0/</guid>
+      <description>reentrantlock note reentrantlock实例化方法有公平锁和非公平锁，默认使用非公平锁。
+public ReentrantLock() { sync = new NonfairSync(); } public ReentrantLock(boolean fair) { sync = fair ? new FairSync() : new NonfairSync(); }  此处可以看到非公平锁是NonfairSync和公平锁是FairSync两个类，这两个类都继承于 AbstractQueuedSynchronizer，AbstractQueuedSynchronizer也就是 大名鼎鼎的AQS,参考连接 https://www.jianshu.com/p/da9d051dcc3d
+abstract static class Sync extends AbstractQueuedSynchronizer {} static final class NonfairSync extends Sync {} static final class FairSync extends Sync {}  NonFairSync和FairSync有两处不同，第一处是在调用lock方法时，第二处是在各自的acquire。
+当NonFairSync调用lock方法时：
+final void lock() { if (compareAndSetState(0, 1)) setExclusiveOwnerThread(Thread.currentThread()); else acquire(1); }  当FairSync调用lock方法时：
+final void lock() { acquire(1); }  对比可见，NonFairSync会先进行一次compareAndSetState,也就是CAS（原子性操作）。这是两者的第一处区别。 compareAndSetState这就是常说的插队，去获取锁。如果成功，执行setExclusiveOwnerThread设置当前线程为锁的占有者；</description>
+    </item>
+    
+    <item>
+      <title>Nio笔记</title>
+      <link>http://hugo.spf13.com/post/nio%E7%AC%94%E8%AE%B0/</link>
+      <pubDate>Thu, 19 Sep 2019 17:52:13 +0800</pubDate>
+      
+      <guid>http://hugo.spf13.com/post/nio%E7%AC%94%E8%AE%B0/</guid>
+      <description>java NIO 非阻塞IO 可以使用mina框架 NIO三大核心：
+Selector
+Buffer
+Channel
+serverSocketChannel.accept()会一直阻塞到有新的连接进入，但是如果提前将ServerSocketChannel.configBlocking(true)这样，accept不会阻塞，会返回null。
+selector.selectedKeys()返回一个selectedKeys，（set）
+wakeUp() 某个线程调用select()方法后阻塞了，即使没有通道已经就绪，也有办法让其从select()方法返回。只要让其它线程在第一个线程调用select()方法的那个对象上调用Selector.wakeup()方法即可。阻塞在select()方法上的线程会立马返回。
+如果有其它线程调用了wakeup()方法，但当前没有线程阻塞在select()方法上，下个调用select()方法的线程会立即“醒来（wake up）”。
+close() 用完Selector后调用其close()方法会关闭该Selector，且使注册到该Selector上的所有SelectionKey实例无效。通道本身并不会关闭
+Selectort
+Buffer
+Channel
+Channel通道，用来传输数据，类似于火车轨道
+Buffer缓冲区，用来从channel中，或者server or client 读写数据，可以想象成火车车厢，（或者是吃饭时，从锅里到碗里，中间的勺子）
+Selector很关键，用来监听channel中的事件，比如channel中可以读了，Selector可以监听到OP_READ事件。为了达到让Selector监听的目的，需要将Channel注册到Selector，所以就有了Channel.register(selector,SelectorKey.OP_READ).第二个参数就是我们想让Selector监听的参数， 这个参数可以是一个也可以是多个。这里就需要说一下SelectionKey这个类。 一个的情况：
+ public static final int OP_READ = 1 &amp;lt;&amp;lt; 0; public static final int OP_WRITE = 1 &amp;lt;&amp;lt; 2; public static final int OP_CONNECT = 1 &amp;lt;&amp;lt; 3; public static final int OP_ACCEPT = 1 &amp;lt;&amp;lt; 4;  如果即想监听connect事件，又想监听accept事件，需要使用或运算符&amp;rdquo;|&amp;ldquo;将两个事件连接起来，如下
+ Selector selector = Selector.</description>
+    </item>
+    
+    <item>
+      <title>CountDownLatch</title>
+      <link>http://hugo.spf13.com/post/countdownlatch/</link>
+      <pubDate>Thu, 19 Sep 2019 17:42:54 +0800</pubDate>
+      
+      <guid>http://hugo.spf13.com/post/countdownlatch/</guid>
+      <description>countdownlatch-note 适用场景 countdownlatch理解为倒计数器更容易。适用场景：某些任务要完成（countdown），完成之后才能继续后面的任务（await）。首先初始化一个countdownlatch，给定一个数字（这个数字可以理解为需要完成的任务的数量，因为每完成一个任务，需要-1，就是调用一次countdown方法），直到减为0，就是任务都执行完了，此时，await方法后面的代码才能执行。
+代码示例 public class TestCountDownLatch implements Runnable { private static CountDownLatch countDownLatch = new CountDownLatch(10); @Override public void run() { try { Thread.sleep(1000); countDownLatch.countDown(); System.out.println(&amp;quot;count&amp;quot;); } catch (InterruptedException e) { e.printStackTrace(); } } public static void main(String[] args) throws InterruptedException { ExecutorService executorService = Executors.newFixedThreadPool(10); for (int i = 0; i &amp;lt; 10; i++) { TestCountDownLatch testCountDownLatch = new TestCountDownLatch(); executorService.submit(testCountDownLatch); } executorService.shutdown(); countDownLatch.await(); System.out.println(&amp;quot; ok &amp;quot;); } }  源码分析 构造方法：</description>
+    </item>
+    
+  </channel>
+</rss>

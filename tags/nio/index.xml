@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Nio on Hugo Themes</title>
+    <link>http://hugo.spf13.com/tags/nio/</link>
+    <description>Recent content in Nio on Hugo Themes</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <copyright>Copyright (c) 2008 - 2014, Steve Francia; all rights reserved.</copyright>
+    <lastBuildDate>Thu, 19 Sep 2019 17:52:13 +0800</lastBuildDate>
+    
+	<atom:link href="http://hugo.spf13.com/tags/nio/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Nio笔记</title>
+      <link>http://hugo.spf13.com/post/nio%E7%AC%94%E8%AE%B0/</link>
+      <pubDate>Thu, 19 Sep 2019 17:52:13 +0800</pubDate>
+      
+      <guid>http://hugo.spf13.com/post/nio%E7%AC%94%E8%AE%B0/</guid>
+      <description>java NIO 非阻塞IO 可以使用mina框架 NIO三大核心：
+Selector
+Buffer
+Channel
+serverSocketChannel.accept()会一直阻塞到有新的连接进入，但是如果提前将ServerSocketChannel.configBlocking(true)这样，accept不会阻塞，会返回null。
+selector.selectedKeys()返回一个selectedKeys，（set）
+wakeUp() 某个线程调用select()方法后阻塞了，即使没有通道已经就绪，也有办法让其从select()方法返回。只要让其它线程在第一个线程调用select()方法的那个对象上调用Selector.wakeup()方法即可。阻塞在select()方法上的线程会立马返回。
+如果有其它线程调用了wakeup()方法，但当前没有线程阻塞在select()方法上，下个调用select()方法的线程会立即“醒来（wake up）”。
+close() 用完Selector后调用其close()方法会关闭该Selector，且使注册到该Selector上的所有SelectionKey实例无效。通道本身并不会关闭
+Selectort
+Buffer
+Channel
+Channel通道，用来传输数据，类似于火车轨道
+Buffer缓冲区，用来从channel中，或者server or client 读写数据，可以想象成火车车厢，（或者是吃饭时，从锅里到碗里，中间的勺子）
+Selector很关键，用来监听channel中的事件，比如channel中可以读了，Selector可以监听到OP_READ事件。为了达到让Selector监听的目的，需要将Channel注册到Selector，所以就有了Channel.register(selector,SelectorKey.OP_READ).第二个参数就是我们想让Selector监听的参数， 这个参数可以是一个也可以是多个。这里就需要说一下SelectionKey这个类。 一个的情况：
+ public static final int OP_READ = 1 &amp;lt;&amp;lt; 0; public static final int OP_WRITE = 1 &amp;lt;&amp;lt; 2; public static final int OP_CONNECT = 1 &amp;lt;&amp;lt; 3; public static final int OP_ACCEPT = 1 &amp;lt;&amp;lt; 4;  如果即想监听connect事件，又想监听accept事件，需要使用或运算符&amp;rdquo;|&amp;ldquo;将两个事件连接起来，如下
+ Selector selector = Selector.</description>
+    </item>
+    
+  </channel>
+</rss>
