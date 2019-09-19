@@ -6,10 +6,20 @@
     <description>Recent content on Chris Turner</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-US</language>
-    <lastBuildDate>Thu, 19 Sep 2019 14:43:33 +0800</lastBuildDate>
+    <lastBuildDate>Thu, 19 Sep 2019 15:29:56 +0800</lastBuildDate>
     
 	<atom:link href="https://lihengjie.github.io/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>CountDownLatch</title>
+      <link>https://lihengjie.github.io/blog/countdownlatch/</link>
+      <pubDate>Thu, 19 Sep 2019 15:29:56 +0800</pubDate>
+      
+      <guid>https://lihengjie.github.io/blog/countdownlatch/</guid>
+      <description>countdownlatch-note 适用场景 countdownlatch理解为倒计数器更容易。适用场景：某些任务要完成（countdown），完成之后才能继续后面的任务（await）。首先初始化一个countdownlatch，给定一个数字（这个数字可以理解为需要完成的任务的数量，因为每完成一个任务，需要-1，就是调用一次countdown方法），直到减为0，就是任务都执行完了，此时，await方法后面的代码才能执行。
+代码示例 public class TestCountDownLatch implements Runnable { private static CountDownLatch countDownLatch = new CountDownLatch(10); @Override public void run() { try { Thread.sleep(1000); countDownLatch.countDown(); System.out.println(&amp;quot;count&amp;quot;); } catch (InterruptedException e) { e.printStackTrace(); } } public static void main(String[] args) throws InterruptedException { ExecutorService executorService = Executors.newFixedThreadPool(10); for (int i = 0; i &amp;lt; 10; i++) { TestCountDownLatch testCountDownLatch = new TestCountDownLatch(); executorService.submit(testCountDownLatch); } executorService.shutdown(); countDownLatch.await(); System.out.println(&amp;quot; ok &amp;quot;); } }  源码分析 构造方法：</description>
+    </item>
     
     <item>
       <title>Test</title>

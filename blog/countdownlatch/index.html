@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="author" content="liJerry" />
+    <meta name="description" content="rm -rf /* 跑路程序员">
+    <link rel="shortcut icon" type="image/x-icon" href="https://lihengjie.github.io/img/favicon.ico">
+    <title>CountDownLatch</title>
+    <meta name="generator" content="Hugo 0.40.1" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="https://lihengjie.github.io/css/main.css" />
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:200,400,200bold,400old" />
+    
+    <!--[if lt IE 9]>
+			<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+			<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+		<![endif]-->
+
+    
+  </head>
+
+  <body>
+    <div id="wrap">
+
+      
+      <nav class="navbar navbar-default">
+  <div class="container">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="https://lihengjie.github.io/"><i class="fa fa-home"></i></a>
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+    </div>
+    <div class="navbar-collapse collapse" id="navbar">
+      <ul class="nav navbar-nav navbar-right">
+      
+        
+        <li><a href="/blog/">博客</a></li>
+        
+        <li><a href="/projects/">PROJECTS</a></li>
+        
+        <li><a href="/resume/">RESUME</a></li>
+        
+      
+      </ul>
+    </div>
+  </div>
+</nav>
+
+      
+      <div class="container">
+        <div class="blog-post">
+          <h3>
+            <strong><a href="https://lihengjie.github.io/blog/countdownlatch/">CountDownLatch</a></strong>
+          </h3>
+        </div>
+        <div class="blog-title">
+          <h4>
+          September 19, 2019
+            &nbsp;&nbsp;
+            
+          </h4>
+        </div>
+        <div class="panel panel-default">
+          <div class="panel-body">
+            <div class="blogpost">
+              
+
+<h2 id="countdownlatch-note">countdownlatch-note</h2>
+
+<hr />
+
+<h3 id="适用场景">适用场景</h3>
+
+<p>countdownlatch理解为倒计数器更容易。适用场景：某些任务要完成（countdown），完成之后才能继续后面的任务（await）。首先初始化一个countdownlatch，给定一个数字（这个数字可以理解为需要完成的任务的数量，因为每完成一个任务，需要-1，就是调用一次countdown方法），直到减为0，就是任务都执行完了，此时，await方法后面的代码才能执行。</p>
+
+<h3 id="代码示例">代码示例</h3>
+
+<pre><code>public class TestCountDownLatch implements Runnable {
+
+    private static CountDownLatch countDownLatch = new CountDownLatch(10);
+
+    @Override
+    public void run() {
+        try {
+            Thread.sleep(1000);
+            countDownLatch.countDown();
+            System.out.println(&quot;count&quot;);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+    }
+
+
+    public static void main(String[] args) throws InterruptedException {
+        ExecutorService executorService = Executors.newFixedThreadPool(10);
+
+        for (int i = 0; i &lt; 10; i++) {
+            TestCountDownLatch testCountDownLatch = new TestCountDownLatch();
+            executorService.submit(testCountDownLatch);
+        }
+
+        executorService.shutdown();
+        countDownLatch.await();
+
+        System.out.println(&quot; ok &quot;);
+    }
+}
+
+</code></pre>
+
+<h3 id="源码分析">源码分析</h3>
+
+<p>构造方法：</p>
+
+<pre><code>    public CountDownLatch(int count) {
+        if (count &lt; 0) throw new IllegalArgumentException(&quot;count &lt; 0&quot;);
+        this.sync = new Sync(count);
+    }
+
+    private static final class Sync extends AbstractQueuedSynchronizer {
+        private static final long serialVersionUID = 4982264981922014374L;
+
+        Sync(int count) {
+            setState(count);
+        }
+
+        int getCount() {
+            return getState();
+        }
+
+        protected int tryAcquireShared(int acquires) {
+            return (getState() == 0) ? 1 : -1;
+        }
+
+        protected boolean tryReleaseShared(int releases) {
+            // Decrement count; signal when transition to zero
+            for (;;) {
+                int c = getState();
+                if (c == 0)
+                    return false;
+                int nextc = c-1;// 因为countDown方法中无参数，releaseShared(1),每次调用countDown都是默认减1
+                if (compareAndSetState(c, nextc))
+                    return nextc == 0;
+            }
+        }
+    }
+</code></pre>
+
+<p>countDown方法：</p>
+
+<pre><code>	// CountDownLatch
+    public void countDown() {
+        sync.releaseShared(1);
+    }
+
+    // AbstractQueuedSynchronizer
+	public final boolean releaseShared(int arg) {
+        if (tryReleaseShared(arg)) {// 调用CountDownLatch中Sync中的tryReleaseShared
+            doReleaseShared();
+            return true;
+        }
+        return false;
+    }
+
+</code></pre>
+
+<p>await方法：</p>
+
+<pre><code>	// CountDownLatch
+    public void await() throws InterruptedException {
+        sync.acquireSharedInterruptibly(1);
+    }
+
+    protected int tryAcquireShared(int acquires) {
+        return (getState() == 0) ? 1 : -1;
+    }
+
+
+    // AbstractQueuedSynchronizer
+	public final void acquireSharedInterruptibly(int arg)
+            throws InterruptedException {
+        if (Thread.interrupted())
+            throw new InterruptedException();
+        if (tryAcquireShared(arg) &lt; 0)
+            doAcquireSharedInterruptibly(arg);
+    }
+
+    private void doAcquireSharedInterruptibly(int arg)
+        throws InterruptedException {
+        final Node node = addWaiter(Node.SHARED);
+        boolean failed = true;
+        try {
+            for (;;) {
+                final Node p = node.predecessor();
+                if (p == head) {
+                    int r = tryAcquireShared(arg);
+                    if (r &gt;= 0) {
+                        setHeadAndPropagate(node, r);
+                        p.next = null; // help GC
+                        failed = false;
+                        return;
+                    }
+                }
+                if (shouldParkAfterFailedAcquire(p, node) &amp;&amp;
+                    parkAndCheckInterrupt())
+                    throw new InterruptedException();
+            }
+        } finally {
+            if (failed)
+                cancelAcquire(node);
+        }
+    }
+</code></pre>
+
+              <hr>
+              <div class="related-posts">
+                <h5>Related Posts</h5>
+                
+              </div>
+            </div>
+          </div>
+          <hr>
+        <div class="disqus">
+  <div id="disqus_thread"></div>
+  <script type="text/javascript">
+
+    (function() {
+      
+      
+      if (window.location.hostname == "localhost")
+        return;
+
+      var disqus_shortname = '';
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+  </script>
+  <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  <a href="http://disqus.com/" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</div>
+        </div>
+      </div>
+      
+    </div>
+
+    
+    <footer>
+  <div id="footer">
+    <div class="container">
+      <p class="text-muted">&copy; All rights reserved. Powered by <a href="https://gohugo.io/">Hugo</a> and
+      <a href="http://www.github.com/nurlansu/hugo-sustain/">sustain</a> with ♥</p>
+    </div>
+  </div>
+</footer>
+<div class="footer"></div>
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+<script src="https://lihengjie.github.io/js/docs.min.js"></script>
+<script src="https://lihengjie.github.io/js/main.js"></script>
+
+<script src="https://lihengjie.github.io/js/ie10-viewport-bug-workaround.js"></script>
+
+
+    
+  </body>
+</html>
