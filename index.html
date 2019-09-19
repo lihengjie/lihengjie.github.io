@@ -28,25 +28,11 @@
         <h3 data-open="last-posts">lihengjie&#39;s blog - Most recent posts</h3>
         <ul>
             
-            <li><a href="https://lihengjie.github.io/post/creating-a-new-theme/">Creating a New Theme</a></li>
-            
-            <li><a href="https://lihengjie.github.io/post/migrate-from-jekyll/">Migrate to Hugo from Jekyll</a></li>
-            
             <li><a href="https://lihengjie.github.io/blog/countdownlatch/">CountDownLatch</a></li>
-            
-            <li><a href="https://lihengjie.github.io/blog/test/">Test</a></li>
-            
-            <li><a href="https://lihengjie.github.io/blog/hello/">Hello</a></li>
             
             <li><a href="https://lihengjie.github.io/projects/">Projects</a></li>
             
-            <li><a href="https://lihengjie.github.io/blog/creating-a-new-theme/">Creating a New Theme</a></li>
-            
             <li><a href="https://lihengjie.github.io/about/">About Hugo</a></li>
-            
-            <li><a href="https://lihengjie.github.io/blog/goisforlovers/">(Hu)go Template Primer</a></li>
-            
-            <li><a href="https://lihengjie.github.io/post/goisforlovers/">(Hu)go Template Primer</a></li>
             
         </ul>
     </div>
@@ -57,19 +43,7 @@
         <h3 data-open="tags">Tags</h3>
         <ul class="tags">
             
-            <li><a href="https://lihengjie.github.io/tags/development">development</a></li>
-            
-            <li><a href="https://lihengjie.github.io/tags/go">go</a></li>
-            
-            <li><a href="https://lihengjie.github.io/tags/golang">golang</a></li>
-            
-            <li><a href="https://lihengjie.github.io/tags/hugo">hugo</a></li>
-            
             <li><a href="https://lihengjie.github.io/tags/projects">projects</a></li>
-            
-            <li><a href="https://lihengjie.github.io/tags/templates">templates</a></li>
-            
-            <li><a href="https://lihengjie.github.io/tags/themes">themes</a></li>
             
         </ul>
     </div>
@@ -79,10 +53,6 @@
     <div id="categories" class="open">
         <h3 data-open="categories">Categories</h3>
         <ul class="categories">
-            
-            <li><a href="https://lihengjie.github.io/categories/development">development</a></li>
-            
-            <li><a href="https://lihengjie.github.io/categories/golang">golang</a></li>
             
             <li><a href="https://lihengjie.github.io/categories/projects">projects</a></li>
             
@@ -98,109 +68,27 @@
 <div class="articles-list">
     
     <article>
-        <h3><a href="https://lihengjie.github.io/post/migrate-from-jekyll/">Migrate to Hugo from Jekyll</a> - 2014-03-10 00:00:00</h3>
-        Move static content to static Jekyll has a rule that any directory not starting with _ will be copied as-is to the _site output. Hugo keeps all static content under static. You should therefore move it all there. With Jekyll, something that looked like
-▾ &lt;root&gt;/ ▾ images/ logo.png  should become
-▾ &lt;root&gt;/ ▾ static/ ▾ images/ logo.png  Additionally, you&rsquo;ll want any files that should reside at the root (such as CNAME) to be moved to static.
+        <h3><a href="https://lihengjie.github.io/about/">About Hugo</a> - 2014-04-09 00:00:00</h3>
+        Hugo is a static site engine written in Go.
+It makes use of a variety of open source projects including:
+ Cobra Viper J Walter Weatherman Cast  Learn more and contribute on GitHub.
+Setup Some fun facts about Hugo:
+ Built in Go Loosely inspired by Jekyll Primarily developed by spf13 on the train while commuting to and from Manhattan. Coded in Vim using spf13-vim  Have questions or suggestions?
     </article>
     
     <article>
-        <h3><a href="https://lihengjie.github.io/blog/migrate-from-jekyll/">Migrate to Hugo from Jekyll</a> - 2014-03-10 00:00:00</h3>
-        Move static content to static Jekyll has a rule that any directory not starting with _ will be copied as-is to the _site output. Hugo keeps all static content under static. You should therefore move it all there. With Jekyll, something that looked like
-▾ &lt;root&gt;/ ▾ images/ logo.png  should become
-▾ &lt;root&gt;/ ▾ static/ ▾ images/ logo.png  Additionally, you&rsquo;ll want any files that should reside at the root (such as CNAME) to be moved to static.
+        <h3><a href="https://lihengjie.github.io/projects/">Projects</a> - 2016-10-02 22:55:05</h3>
+        
     </article>
     
     <article>
-        <h3><a href="https://lihengjie.github.io/blog/goisforlovers/">(Hu)go Template Primer</a> - 2014-04-02 00:00:00</h3>
-        Hugo uses the excellent go html/template library for its template engine. It is an extremely lightweight engine that provides a very small amount of logic. In our experience that it is just the right amount of logic to be able to create a good static website. If you have used other template systems from different languages or frameworks you will find a lot of similarities in go templates.
-This document is a brief primer on using go templates.
+        <h3><a href="https://lihengjie.github.io/blog/countdownlatch/">CountDownLatch</a> - 2019-09-19 15:29:56</h3>
+        countdownlatch-note 适用场景 countdownlatch理解为倒计数器更容易。适用场景：某些任务要完成（countdown），完成之后才能继续后面的任务（await）。首先初始化一个countdownlatch，给定一个数字（这个数字可以理解为需要完成的任务的数量，因为每完成一个任务，需要-1，就是调用一次countdown方法），直到减为0，就是任务都执行完了，此时，await方法后面的代码才能执行。
+代码示例 public class TestCountDownLatch implements Runnable { private static CountDownLatch countDownLatch = new CountDownLatch(10); @Override public void run() { try { Thread.sleep(1000); countDownLatch.countDown(); System.out.println(&quot;count&quot;); } catch (InterruptedException e) { e.printStackTrace(); } } public static void main(String[] args) throws InterruptedException { ExecutorService executorService = Executors.newFixedThreadPool(10); for (int i = 0; i &lt; 10; i++) { TestCountDownLatch testCountDownLatch = new TestCountDownLatch(); executorService.submit(testCountDownLatch); } executorService.shutdown(); countDownLatch.await(); System.out.println(&quot; ok &quot;); } }  源码分析 构造方法：
     </article>
     
 </div>
 
-
-<ul class="pagination">
-    
-    <li>
-        <a href="https://lihengjie.github.io/" aria-label="First"><span aria-hidden="true">&laquo;&laquo;</span></a>
-    </li>
-    
-    <li
-    class="disabled">
-    <a href="" aria-label="Previous"><span aria-hidden="true">&laquo;</span></a>
-    </li>
-    
-    
-    
-    
-    
-    
-        
-        
-    
-    
-    <li
-    class="active"><a href="https://lihengjie.github.io/">1</a></li>
-    
-    
-    
-    
-    
-    
-        
-        
-    
-    
-    <li
-    ><a href="https://lihengjie.github.io/page/2/">2</a></li>
-    
-    
-    
-    
-    
-    
-        
-        
-    
-    
-    <li
-    ><a href="https://lihengjie.github.io/page/3/">3</a></li>
-    
-    
-    
-    
-    
-    
-        
-        
-    
-    
-    <li class="disabled"><span aria-hidden="true">&hellip;</span></li>
-    
-    
-    
-    
-    
-    
-        
-        
-    
-    
-    <li
-    ><a href="https://lihengjie.github.io/page/5/">5</a></li>
-    
-    
-    <li
-    >
-    <a href="https://lihengjie.github.io/page/2/" aria-label="Next"><span aria-hidden="true">&raquo;</span></a>
-    </li>
-    
-    <li>
-        <a href="https://lihengjie.github.io/page/5/" aria-label="Last"><span aria-hidden="true">&raquo;&raquo;</span></a>
-    </li>
-    
-</ul>
 
 </div>
 </div>
