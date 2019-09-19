@@ -1,39 +1,39 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Categories on Chris Turner</title>
-    <link>https://lihengjie.github.io/categories/</link>
-    <description>Recent content in Categories on Chris Turner</description>
+    <title>Categories on Hugo Themes</title>
+    <link>http://hugo.spf13.com/categories/</link>
+    <description>Recent content in Categories on Hugo Themes</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en-US</language>
+    <copyright>Copyright (c) 2008 - 2014, Steve Francia; all rights reserved.</copyright>
     
-	<atom:link href="https://lihengjie.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="http://hugo.spf13.com/categories/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Development</title>
-      <link>https://lihengjie.github.io/categories/development/</link>
+      <link>http://hugo.spf13.com/categories/development/</link>
       <pubDate>Wed, 02 Apr 2014 00:00:00 +0000</pubDate>
       
-      <guid>https://lihengjie.github.io/categories/development/</guid>
+      <guid>http://hugo.spf13.com/categories/development/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Golang</title>
-      <link>https://lihengjie.github.io/categories/golang/</link>
+      <link>http://hugo.spf13.com/categories/golang/</link>
       <pubDate>Wed, 02 Apr 2014 00:00:00 +0000</pubDate>
       
-      <guid>https://lihengjie.github.io/categories/golang/</guid>
+      <guid>http://hugo.spf13.com/categories/golang/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Projects</title>
-      <link>https://lihengjie.github.io/categories/projects/</link>
+      <link>http://hugo.spf13.com/categories/projects/</link>
       <pubDate>Sun, 02 Oct 2016 22:55:05 -0400</pubDate>
       
-      <guid>https://lihengjie.github.io/categories/projects/</guid>
+      <guid>http://hugo.spf13.com/categories/projects/</guid>
       <description></description>
     </item>
     

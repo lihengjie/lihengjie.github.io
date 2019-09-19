@@ -1,22 +1,22 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Projects on Chris Turner</title>
-    <link>https://lihengjie.github.io/tags/projects/</link>
-    <description>Recent content in Projects on Chris Turner</description>
+    <title>Projects on Hugo Themes</title>
+    <link>http://hugo.spf13.com/tags/projects/</link>
+    <description>Recent content in Projects on Hugo Themes</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en-US</language>
+    <copyright>Copyright (c) 2008 - 2014, Steve Francia; all rights reserved.</copyright>
     <lastBuildDate>Sun, 02 Oct 2016 22:55:05 -0400</lastBuildDate>
     
-	<atom:link href="https://lihengjie.github.io/tags/projects/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="http://hugo.spf13.com/tags/projects/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Projects</title>
-      <link>https://lihengjie.github.io/projects/</link>
+      <link>http://hugo.spf13.com/projects/</link>
       <pubDate>Sun, 02 Oct 2016 22:55:05 -0400</pubDate>
       
-      <guid>https://lihengjie.github.io/projects/</guid>
+      <guid>http://hugo.spf13.com/projects/</guid>
       <description></description>
     </item>
     
