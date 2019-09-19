@@ -1,22 +1,22 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Tcpdump on Hugo Themes</title>
-    <link>http://hugo.spf13.com/tags/tcpdump/</link>
-    <description>Recent content in Tcpdump on Hugo Themes</description>
+    <title>Tcpdump on lihengjie&#39;s blog</title>
+    <link>https://lihengjie.github.io/tags/tcpdump/</link>
+    <description>Recent content in Tcpdump on lihengjie&#39;s blog</description>
     <generator>Hugo -- gohugo.io</generator>
-    <copyright>Copyright (c) 2008 - 2014, Steve Francia; all rights reserved.</copyright>
+    <copyright>Copyright (c) 2019 - 2020, lihengjie; all rights reserved.</copyright>
     <lastBuildDate>Thu, 19 Sep 2019 17:53:36 +0800</lastBuildDate>
     
-	<atom:link href="http://hugo.spf13.com/tags/tcpdump/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://lihengjie.github.io/tags/tcpdump/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Tcpdump笔记</title>
-      <link>http://hugo.spf13.com/post/tcpdump%E7%AC%94%E8%AE%B0/</link>
+      <link>https://lihengjie.github.io/post/tcpdump%E7%AC%94%E8%AE%B0/</link>
       <pubDate>Thu, 19 Sep 2019 17:53:36 +0800</pubDate>
       
-      <guid>http://hugo.spf13.com/post/tcpdump%E7%AC%94%E8%AE%B0/</guid>
+      <guid>https://lihengjie.github.io/post/tcpdump%E7%AC%94%E8%AE%B0/</guid>
       <description> tcpdump 抓包命令及wireshark使用 tcpdump 命令 参考网址
 tcpdump -i eth0 src host 192.168.0.1 dst host 145.155.25.100 -w /home/test.pcap |命令|说明 |- |-i|指定网卡 |src host|指定源地址 |dst host|指定目标地址 |-w|写入文件
 wireshark 使用  导入生成的pcap文件。 使用命令过滤。  wireshark命令 参考网址

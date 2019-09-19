@@ -1,22 +1,22 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Git on Hugo Themes</title>
-    <link>http://hugo.spf13.com/categories/git/</link>
-    <description>Recent content in Git on Hugo Themes</description>
+    <title>Git on lihengjie&#39;s blog</title>
+    <link>https://lihengjie.github.io/categories/git/</link>
+    <description>Recent content in Git on lihengjie&#39;s blog</description>
     <generator>Hugo -- gohugo.io</generator>
-    <copyright>Copyright (c) 2008 - 2014, Steve Francia; all rights reserved.</copyright>
+    <copyright>Copyright (c) 2019 - 2020, lihengjie; all rights reserved.</copyright>
     <lastBuildDate>Thu, 19 Sep 2019 17:51:45 +0800</lastBuildDate>
     
-	<atom:link href="http://hugo.spf13.com/categories/git/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://lihengjie.github.io/categories/git/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Git常用命令</title>
-      <link>http://hugo.spf13.com/post/git%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/</link>
+      <link>https://lihengjie.github.io/post/git%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/</link>
       <pubDate>Thu, 19 Sep 2019 17:51:45 +0800</pubDate>
       
-      <guid>http://hugo.spf13.com/post/git%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/</guid>
+      <guid>https://lihengjie.github.io/post/git%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/</guid>
       <description>git note git stash
 git stash list
 git stash applay

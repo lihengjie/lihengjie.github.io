@@ -3,129 +3,129 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>http://hugo.spf13.com/post/volatile%E7%AC%94%E8%AE%B0/</loc>
+    <loc>https://lihengjie.github.io/post/volatile%E7%AC%94%E8%AE%B0/</loc>
     <lastmod>2019-09-19T17:53:47+08:00</lastmod>
   </url>
   
   <url>
-    <loc>http://hugo.spf13.com/post/tcpdump%E7%AC%94%E8%AE%B0/</loc>
+    <loc>https://lihengjie.github.io/post/tcpdump%E7%AC%94%E8%AE%B0/</loc>
     <lastmod>2019-09-19T17:53:36+08:00</lastmod>
   </url>
   
   <url>
-    <loc>http://hugo.spf13.com/post/semaphore%E7%AC%94%E8%AE%B0/</loc>
+    <loc>https://lihengjie.github.io/post/semaphore%E7%AC%94%E8%AE%B0/</loc>
     <lastmod>2019-09-19T17:53:22+08:00</lastmod>
   </url>
   
   <url>
-    <loc>http://hugo.spf13.com/post/reentrantlock%E7%AC%94%E8%AE%B0/</loc>
+    <loc>https://lihengjie.github.io/post/reentrantlock%E7%AC%94%E8%AE%B0/</loc>
     <lastmod>2019-09-19T17:52:58+08:00</lastmod>
   </url>
   
   <url>
-    <loc>http://hugo.spf13.com/post/nio%E7%AC%94%E8%AE%B0/</loc>
+    <loc>https://lihengjie.github.io/post/nio%E7%AC%94%E8%AE%B0/</loc>
     <lastmod>2019-09-19T17:52:13+08:00</lastmod>
   </url>
   
   <url>
-    <loc>http://hugo.spf13.com/post/git%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/</loc>
+    <loc>https://lihengjie.github.io/post/git%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/</loc>
     <lastmod>2019-09-19T17:51:45+08:00</lastmod>
   </url>
   
   <url>
-    <loc>http://hugo.spf13.com/post/cron%E8%A1%A8%E8%BE%BE%E5%BC%8F/</loc>
+    <loc>https://lihengjie.github.io/post/cron%E8%A1%A8%E8%BE%BE%E5%BC%8F/</loc>
     <lastmod>2019-09-19T17:51:12+08:00</lastmod>
   </url>
   
   <url>
-    <loc>http://hugo.spf13.com/post/countdownlatch/</loc>
+    <loc>https://lihengjie.github.io/post/countdownlatch/</loc>
     <lastmod>2019-09-19T17:42:54+08:00</lastmod>
   </url>
   
   <url>
-    <loc>http://hugo.spf13.com/about/</loc>
+    <loc>https://lihengjie.github.io/about/</loc>
     <lastmod>2014-04-09T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://hugo.spf13.com/categories/</loc>
+    <loc>https://lihengjie.github.io/categories/</loc>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>http://hugo.spf13.com/tags/cron/</loc>
+    <loc>https://lihengjie.github.io/tags/cron/</loc>
     <lastmod>2019-09-19T17:51:12+08:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>http://hugo.spf13.com/tags/git/</loc>
+    <loc>https://lihengjie.github.io/tags/git/</loc>
     <lastmod>2019-09-19T17:51:45+08:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>http://hugo.spf13.com/categories/git/</loc>
+    <loc>https://lihengjie.github.io/categories/git/</loc>
     <lastmod>2019-09-19T17:51:45+08:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>http://hugo.spf13.com/</loc>
+    <loc>https://lihengjie.github.io/tags/java/</loc>
     <lastmod>2019-09-19T17:53:47+08:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>http://hugo.spf13.com/tags/java/</loc>
+    <loc>https://lihengjie.github.io/categories/java/</loc>
     <lastmod>2019-09-19T17:53:47+08:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>http://hugo.spf13.com/categories/java/</loc>
-    <lastmod>2019-09-19T17:53:47+08:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>http://hugo.spf13.com/categories/linux/</loc>
+    <loc>https://lihengjie.github.io/categories/linux/</loc>
     <lastmod>2019-09-19T17:53:36+08:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>http://hugo.spf13.com/tags/nio/</loc>
+    <loc>https://lihengjie.github.io/tags/nio/</loc>
     <lastmod>2019-09-19T17:52:13+08:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>http://hugo.spf13.com/post/</loc>
+    <loc>https://lihengjie.github.io/post/</loc>
     <lastmod>2019-09-19T17:53:47+08:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>http://hugo.spf13.com/tags/</loc>
+    <loc>https://lihengjie.github.io/tags/</loc>
     <lastmod>2019-09-19T17:51:12+08:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>http://hugo.spf13.com/tags/tcpdump/</loc>
+    <loc>https://lihengjie.github.io/tags/tcpdump/</loc>
     <lastmod>2019-09-19T17:53:36+08:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>http://hugo.spf13.com/tags/%E5%A4%9A%E7%BA%BF%E7%A8%8B/</loc>
+    <loc>https://lihengjie.github.io/</loc>
     <lastmod>2019-09-19T17:53:47+08:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>http://hugo.spf13.com/categories/%E5%A4%9A%E7%BA%BF%E7%A8%8B/</loc>
+    <loc>https://lihengjie.github.io/tags/%E5%A4%9A%E7%BA%BF%E7%A8%8B/</loc>
+    <lastmod>2019-09-19T17:53:47+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://lihengjie.github.io/categories/%E5%A4%9A%E7%BA%BF%E7%A8%8B/</loc>
     <lastmod>2019-09-19T17:42:54+08:00</lastmod>
     <priority>0</priority>
   </url>
