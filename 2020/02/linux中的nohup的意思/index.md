@@ -20,14 +20,14 @@ ls a b 1>out 2>err
 
 **通常 1>out 中的1可以不写，**      
 
-```
+```shell
 ls a b  >out 2>err
 ```
 
 2>&1 : 将错误输出到1通道（即上文中的out），注意1前面需要加&。这样标准输出和标准错误可以输出到一个文件中，便于我们查看日志。
 示例：
 
-```
+```shell
 ls a b > out 2>&1
 ```
 ![在这里插入图片描述](https://img-blog.csdnimg.cn/20190619163624505.png)
@@ -39,7 +39,7 @@ ls a b > out 2>&1
 
 
 
-```
+```shell
 nohub java -jar springtest.jar &
 ```
 
@@ -49,12 +49,11 @@ nohub java -jar springtest.jar &
 
 ​		
 
-```
+```shell
 nohub java -jar springtest.jar  >> springtest.log 2>&1 &
 ```
 
 如果，我们需要指定配置文件，将上面命令改为：
-		
 
 ```
 nohub java -jar springtest.jar --spring.config.location=./application.yml >> springtest.log  2>&1 & 
